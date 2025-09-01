@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ambientes Productivos · PreSeeds</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+  <style>
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial,sans-serif;margin:24px}
+    #app{display:grid;grid-template-columns:1fr 320px;gap:16px;align-items:start}
+    #map{height:500px;border:1px solid #ddd;border-radius:12px}
+    .panel{border:1px solid #eee;border-radius:12px;padding:16px}
+    .row{display:flex;gap:8px;margin:8px 0}
+    input,select,button{padding:10px 12px;border-radius:10px;border:1px solid #ddd;width:100%}
+    button.primary{background:#f4b400;color:#111;border:0;font-weight:600;cursor:pointer}
+    pre{background:#fafafa;border:1px dashed #ddd;border-radius:8px;padding:8px;max-height:180px;overflow:auto}
+  </style>
+</head>
+<body>
+  <h1>Ambientes Productivos</h1>
+  <div id="app">
+    <div id="map"></div>
+    <div class="panel">
+      <div class="row">
+        <label style="width:50%">K (zonas)
+          <input id="k_zonas" type="number" min="2" max="9" value="5"/>
+        </label>
+        <label style="width:50%">Últimos años (N)
+          <input id="n_anios" type="number" min="1" max="10" value="5"/>
+        </label>
+      </div>
+      <div class="row">
+        <label style="width:50%">Mejores años (K)
+          <input id="k_mejores" type="number" min="1" max="10" value="3"/>
+        </label>
+        <label style="width:50%">Suavizado (px)
+          <input id="suavizado" type="number" min="0" max="10" value="2"/>
+        </label>
+      </div>
+      <div class="row"><button class="primary" id="btnProcess">Procesar</button></div>
+      <div class="row"><pre id="out"></pre></div>
+    </div>
+  </div>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
